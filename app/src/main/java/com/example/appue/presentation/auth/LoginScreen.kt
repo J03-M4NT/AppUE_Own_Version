@@ -17,10 +17,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
 // Login Screen :D
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
 
     var email by remember { mutableStateOf(value = "") }
     var password by remember { mutableStateOf(value = "") }
@@ -28,6 +29,9 @@ fun LoginScreen(){
     Column(
         modifier = Modifier.padding(16.dp)
     ) {
+        // Spacer for the title
+        Spacer(modifier = Modifier.height(16.dp))
+
         // Title for login
         Text( text = "Iniciar Sesión", style = MaterialTheme.typography.titleLarge )
 
@@ -55,10 +59,17 @@ fun LoginScreen(){
             modifier = Modifier.fillMaxWidth() // All space for password textbox
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(16.dp))   // Spacer for the button :)
 
+        // Button actions for validate the login and redirection to the main screen
         Button( onClick = {
-            /*TODO*/
+            if( email.isNotBlank() && password.isNotBlank()) {
+
+                    navController.navigate("login")
+
+            }
+
+
         }, modifier = Modifier.fillMaxWidth() // Take all the space for the button c:
         ) {
            Text("Iniciar Sesión")

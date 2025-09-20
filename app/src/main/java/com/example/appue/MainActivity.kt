@@ -4,14 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.appue.presentation.auth.LoginScreen
+import com.example.appue.presentation.auth.RegisterScreen
+import com.example.appue.presentation.navigation.AppNavGraph
 import com.example.appue.ui.theme.AppUETheme
 
 class MainActivity : ComponentActivity() {
@@ -21,10 +16,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             AppUETheme {
 
-                // Login Screen
-                LoginScreen()
 
-                // Lorem Ipsum
+                AppNavGraph()
+                /*
+                General Navigation, so is better compared to
+                the login and register screens functions
+                */
 
             }
         }
