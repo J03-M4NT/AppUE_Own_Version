@@ -8,6 +8,7 @@ import com.example.appue.presentation.auth.RegisterScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.appue.presentation.home.HomeScreen
+import com.example.appue.presentation.permissions.GalleryPermissionsScreen
 
 @Composable
 fun AppNavGraph(){
@@ -29,7 +30,7 @@ fun AppNavGraph(){
 
         composable ("permissions") {
             DrawerScaffold(navController) {
-                Text("Pantalla de permisos próximamente")
+                GalleryPermissionsScreen()
             }
         }
 
