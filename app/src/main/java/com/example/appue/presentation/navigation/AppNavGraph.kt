@@ -1,5 +1,6 @@
 package com.example.appue.presentation.navigation
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appue.presentation.auth.LoginScreen
@@ -18,7 +19,25 @@ fun AppNavGraph(){
 
         composable("register") { RegisterScreen(navController) }
         composable("login") { LoginScreen(navController) }
-        composable ("home") { HomeScreen() }
+
+        // The options bar only for this parts
+        composable ("home") {
+            DrawerScaffold(navController) {
+                HomeScreen()
+            }
+        }
+
+        composable ("permissions") {
+            DrawerScaffold(navController) {
+                Text("Pantalla de permisos próximamente")
+            }
+        }
+
+        composable ("favorites") {
+            DrawerScaffold(navController) {
+                Text("Pantalla de favoritos próximamente")
+            }
+        }
 
     }
 

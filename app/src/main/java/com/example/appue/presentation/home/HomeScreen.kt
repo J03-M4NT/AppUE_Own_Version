@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,8 +35,7 @@ val mockCountries = listOf(
 
 @Composable
 // Presentation Screen
-fun HomeScreen()
-{
+fun HomeScreen() {
 
     Column(
         modifier = Modifier.fillMaxSize().padding(16.dp),
@@ -48,7 +48,6 @@ fun HomeScreen()
         /* TODO
          Fix and center the title text
         */
-
 
 
         // Spacer(modifier = Modifier.weight(1f))
@@ -68,11 +67,11 @@ fun HomeScreen()
                         Image(
                             contentDescription = country.name,
                             modifier = Modifier.size(64.dp),
-                            contentScale = ContentScale.Crop,
+                            // contentScale = ContentScale.Crop,    // Scale the images, is better without this xd
                             painter = rememberAsyncImagePainter(country.imageURL)
                         )
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.width(8.dp))   // Space between images and description
                         Column {
                             Text(text = country.name, style = MaterialTheme.typography.titleMedium)
                             Text(text = "Ranking FIFA: ${country.ranking}")
