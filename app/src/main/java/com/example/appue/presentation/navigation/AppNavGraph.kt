@@ -16,7 +16,7 @@ fun AppNavGraph(){
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = "home"){    // The first path where apps starts
+        startDestination = "login"){    // The first path where apps starts
 
         composable("register") { RegisterScreen(navController) }
         composable("login") { LoginScreen(navController) }

@@ -22,6 +22,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.appue.data.remote.firebase.FirebaseAuthManager
 import kotlinx.coroutines.launch
 
 
@@ -72,6 +73,23 @@ fun DrawerScaffold(navController: NavController, content: @Composable () -> Unit
                     }
                 )
 
+
+                // Logout Item
+                NavigationDrawerItem(
+                    label = {Text("Cerrar Sesión")},
+                    selected = false,   // In the begin is not selected, so its false
+                    onClick = {
+                        FirebaseAuthManager.logout()
+                        navController.navigate("login"){
+
+                            popUpTo("home"){
+                                inclusive = true
+                            }
+
+                        }
+                        scope.launch { drawerState.close() }    // Close the drawer after click
+                    }
+                )
 
 
             }
